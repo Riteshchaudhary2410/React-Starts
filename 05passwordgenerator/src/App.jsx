@@ -84,6 +84,7 @@ const handleCopy = () => {
         }
         className='w-20 h-2 rounded-lg appearance-none cursor-pointer'
       />
+      length:{pwdlen}
         <input 
       type='checkbox'
       checked={includeNumbers}
