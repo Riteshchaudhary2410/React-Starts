@@ -11,6 +11,9 @@ function App() {
   const [includeNumbers, setIncludeNumbers] = useState(false)
   const [includeSpecialChars, setIncludeSpecialChars] = useState(false)
   const [copied, setCopied] = useState(false)
+
+  const passwordRef = useState(null)
+  
   useEffect(() => {
   const savedPwd = localStorage.getItem("password")
   if (savedPwd) {
@@ -42,6 +45,7 @@ localStorage.setItem("password", newpwd)
 }
 const handleCopy = () => {
   navigator.clipboard.writeText(pwd)
+ // passwordRef.current.select();
  // alert("Password copied to clipboard!")
   setCopied(true)
   setTimeout(() => {
@@ -50,7 +54,6 @@ const handleCopy = () => {
  
 
 }
-
 
   return (
   
@@ -91,13 +94,13 @@ const handleCopy = () => {
       onChange={() => setIncludeNumbers(!includeNumbers)}
       className='cursor-pointer'
       
-      />IncludeNumbers
+      /><label>IncludeNumbers</label>
       <input
         type='checkbox'
         checked={includeSpecialChars}
         onChange={() => setIncludeSpecialChars(!includeSpecialChars)}
         className='cursor-pointer'
-      />IncludeSpecialChars
+      /><label>IncludeSpecialChars</label>
     </div>
     </div>
   )
